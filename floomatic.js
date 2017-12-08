@@ -25,12 +25,12 @@ function parse_args (floorc) {
 
   const username = floorc.auth[default_host].username;
   return optimist
-    .usage("Usage: $0 --join [url] --share [url] --read-only --verbose [path_to_sync]")
+    .usage("Usage: $0 --join [url] --share [dir] --read-only --verbose [path_to_sync]")
     .default("H", parsed_floo.host || default_host)
     .default("p", 3448)
     .describe("join", "The URL of the workspace to join (cannot be used with --share).")
     .default("share", false)
-    .describe("share", "Creates a new workspace if possible. Otherwise, it will sync local files to the existing workspace.")
+    .describe("share", "Creates a new workspace from the directory if possible. Otherwise, it will sync local files to the existing workspace.")
     .describe("w", "The Floobits Workspace.")
     .default("w", parsed_floo.workspace)
     .describe("o", "The owner of the Workspace. Defaults to the .floo file's owner or your ~/.floorc username.")
